@@ -1,0 +1,211 @@
+html{
+    overflow: hidden;
+}
+
+body{
+    background-color: #CCFFE2;
+    overflow: hidden;
+}
+
+.btn-center-text{
+    line-height: 25px !important;
+    padding: 0 !important;
+}
+
+.icono{
+    width: 30px;
+    height: 30px;
+    color:#2C5176 !important;
+}
+
+.row2 {
+    height: 5vh;
+    margin-top: 2.5%;
+}
+
+.titleHome {
+    margin: auto;
+    font-size: 3vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #2C5176;
+    font-weight: bold;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-image: linear-gradient(to top right, #FDDBDF, #DBECFD);
+    margin-top: 5%;
+    margin-left: 25%;
+    padding: 20px;
+    width: 50%;
+    border-radius: 1em;
+}
+
+.infoP {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1vw;
+    margin: 1%;
+    color: #444;
+}
+
+#buttonInfoWindow {
+    margin-top: 20%;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #2C5176;
+    color: #FFFFFF;
+}
+
+.loadButton {
+    justify-content: center;
+    text-align: center;
+    border-style: solid;
+    border-color: #2C5176;
+    border-width: 0.15em;
+    padding: 0;
+    font-size: 1vw;
+    margin: 1%;
+    height: 100%;
+    width: 20%;
+    border-radius: 0.5em;
+    background-color: #CCFFE2;
+    color: #2C5176;
+    font-weight: bold;
+}
+
+.loadButton:hover {
+    background-color: #2C5176;
+    color: #FFFFFF;
+    border-color: #2C5176;
+    cursor: pointer;
+}
+
+.disabled {
+    color: black;
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+}
+
+.submitButton {
+    background-color: #FCDBC7;
+    color:#2C5176;
+    height: auto;   
+    height: 100%;
+    width: 20%;
+    font-size: 1vw;
+    margin-bottom: 15% !important;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5em;
+}
+
+.submitButton:hover {
+    background-color: #FAC2A0;
+    cursor: pointer;
+}
+
+#infoGen {
+    font-size: 0.9vw !important;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 0;
+}
+
+.leftPanel {
+    position: absolute;
+    left: 0;
+    margin-top: 1%;
+    height: 100%;
+    width: 200px;
+    background-color: white;
+    padding: 10px;
+    overflow: scroll;
+  }
+  
+.sequence {
+    display: flex;
+    align-items: center;
+}
+  
+.form-check-label {
+    font-size: 1rem;
+    height: 35px;
+    padding-left: 10px;
+    margin-top: 20px
+}
+
+.containerDiv {
+    background: linear-gradient(to bottom, rgb(255, 255, 25rgb(173, 200, 185)215));
+    width: 100%;
+    height: 90vh;
+    margin:0;
+    padding: 0;
+}
+
+#buscar{
+    border-radius: 0.40em;
+    border-width: 0;
+    background-color: #FCDBC7;
+    width: 100%;
+    height: 70%
+}
+
+.up {
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #CCFFE2;
+}
+
+.down {
+    height: 90%;
+    width: 100%;
+}
+
+#metadataPanel {
+    height: 50% !important;
+    background-color: #ffffff;
+    border-radius: 0.5em;
+    margin-top: 1%;
+    overflow: hidden;
+    justify-content: space-around !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: auto;
+    font-size: 0.8vw !important;
+}
+
+p {
+    margin:auto;
+}
+
+.midPanel {
+    /* padding-bottom: 7%; */
+    background-color: #ffffff;
+    border-radius: 1em;
+    margin: auto;
+    margin-top: 1% !important;
+    margin-bottom: 5%;
+    width: 100%;
+    height: 91%;
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+}
+
+#gosling-container {
+    margin-top: -4.5%;
+    margin-left: -10% !important;
+}

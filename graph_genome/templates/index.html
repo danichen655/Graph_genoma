@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Graph Genome </title>
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.png">
+    <link rel="stylesheet" href="https://unpkg.com/higlass@1.11/dist/hglib.css">
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js"></script>
+    <script src="https://unpkg.com/higlass@1.11/dist/hglib.js"></script>
+    <script src="https://unpkg.com/gosling.js@0.9.17/dist/gosling.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script src="{% static 'js/func_comunes.js' %}"></script>
+</head>
+<body id="particles-js">
+      <div class="align-items-center justify-content-center" style="margin-top: 5%;">
+        <p class="col-5 titleHome"> Create your graph genome! </p>
+          <div class="col-4" style="margin: auto;">
+              <div class="align-items-center">
+                  <div class="loadSection justify-content-center">
+                    <form method="POST" enctype="multipart/form-data" action="/uploadFile/" onsubmit="disableAllBtn();">
+                          {% csrf_token %}
+                          <div class="row justify-content-center">
+                              <input type="file" accept=".fa,.fasta" name="dna" id="loadFasta" multiple="multiple" hidden>
+                              <label for="loadFasta" class="col-4 loadButton text-md" id="labelFasta"> Fasta </label>
+                              <input type="file" accept=".gff3,.gb" name="metadata" id="loadMetadata" multiple="multiple" hidden disabled>
+                              <label for="loadMetadata" class="col-4 loadButton text-md disabled" id="labelMetadata"> Metadata </label>
+                              <input type="file" accept=".zip" name="graphGenome" id="loadGraphGenome" multiple="multiple" hidden>
+                              <label for="loadGraphGenome" class="col-4 loadButton text-md" id="labelGraphGenome"> Graph </label>
+                          </div>
+                          <div class="row justify-content-center" style="margin-left: -50%;">               
+                            <button type="submit" id="submit" class="submitButton disabled" style="margin-left: 30%;" disabled> Submit </button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Ventana emergente - Información de usuario -->  
+      <div id="myModal" class="modal" style="display:block !important">
+        <div class="modal-content justify-content-center">
+            <h2 style="margin:auto; margin-bottom: 5%;" class="titleHome"> User Guide </h2>
+            <p class="infoP"> Lets start with Graph Genomes: </p>
+            <p class="infoP"> 1. Load your fasta files using the fasta button located in the upper left corner. That will enable the submit button to start working </p>   
+            <p class="infoP"> 2. If you have metadata files you can upload them too using the metadata button located next to the fasta button </p>
+            <p class="infoP"> 3. Press the submit button to start. The fastas will be treated to generate the graph </p>
+            <p class="infoP"> 4. You can select the sequences you want to be displayed with the switch buttons located in the left panel. Press accept to refresh the graph </p>
+            <p class="infoP"> 5. The Graph Genomes will be displayed in the middle panel. You can zoom in the genes and move through them </p>
+            <p class="infoP"> 6. Also you can search a specific gen with the search bar located in the upper right corner </p>
+            <button onclick="closeModal()" id="buttonInfoWindow" style="width: 20%; margin: auto;"> Close </button> 
+        </div>
+    </div>
+    <script src="{% static 'js/efectos.js' %}"></script>
+</body>
+</html>

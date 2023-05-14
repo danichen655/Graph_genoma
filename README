@@ -1,0 +1,18 @@
+# Para arrancar el proyecto primero ejecutar Docker Desktop (https://www.docker.com/products/docker-desktop/)
+
+# Posteriormente crear la imagen, ejecutando el siguiente comando
+# Recordar: estar en la misma ruta que las carpetas "dockerFile..." (es decir en la carpeta docker)
+
+docker build -t gfapy_image .\dockerFilegfapy\
+docker build -t global_image .\dockerFileGlobal\
+
+# Tambien es necesario intalar Python, Pandas y Django en el ordenador:
+
+pip install pandas
+#(or)
+pip3 install pandas
+
+python3 -m pip install Django
+
+# Por ultimo arrancar el proyecto estando en la ruta principal del proyecto (/graph_genome/)
+python manage.py runserver

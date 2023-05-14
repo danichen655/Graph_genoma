@@ -1,0 +1,29 @@
+# Crear una imagen a partir del fichero "dockerfile"
+# docker build -t <image_name>:<optional_image_tag> <path_to_directory_containing_dockerfile>
+# Recordar: estar en la misma ruta que las carpetas "dockerFile..." (es decir en la carpeta docker)
+
+docker build -t gfapy_image .\dockerFilegfapy\
+docker build -t global_image .\dockerFileGlobal\
+
+# Crear un contenedor a partir de una imagen
+# docker container run -d --rm -p  <puerto_de_tu_maquina>:<puerto_del_docker> -v <path_de_tu_máquina>:<puerto_del_docker> --name <nombre_del_contenedor> <nombre_de_la_imagen> sleep infinity 
+# Crear una carpeta en docker llamada shared en docker, está conectada al directorio utils con shared y es bidireccional
+# Hay que cambiar la ruta por la ruta en dónde se tenga el proyecto 
+
+docker container run --rm -v D:/AQuinto/TFG/graph_genome/graph_genome/docker:/shared --name container_test test sleep infinity
+
+# Conectarse al contenedor y ejecutarlo
+# docker exec -it -u <usuario> <nombre_del_contenedor> /bin/bash
+
+docker exec -it -u root container_test /bin/bash
+
+# Eliminar el contenedor
+docker rm -f container_test 
+
+
+# ----------------------------------------------Ejecutar con python3--------------------------------------------------
+
+# Si queremos ejecutar el comando con python3 (poner python3 en el comando)
+import os
+os.system("docker container run --rm -v D:/AQuinto/TFG/utils/pruebas_docker:/shared --name container_test test minigraph -cxggs /shared/msa_16S.fasta > out2.gfa")
+
