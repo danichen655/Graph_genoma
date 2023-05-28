@@ -83,7 +83,7 @@ def upload_fasta(request):
         
         lenFiles = aux
         # Coger la referencia
-        referencia = os.path.join(PATH,"inputs","referencia")
+        referencia = os.path.join(PATH,"inputs","referencia.txt")
         with open(referencia, 'r') as f:
             contenido = f.read()
 

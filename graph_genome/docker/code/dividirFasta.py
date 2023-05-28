@@ -1,33 +1,28 @@
 import os
 import sys
+from Bio import SeqIO
 
-if len(sys.argv) < 3:
-    exit()
+def separate_sequences(fasta_file, output_dir):
+    # Utiliza SeqIO para leer el archivo FASTA
+    records = list(SeqIO.parse(fasta_file, "fasta"))
 
-archivo = sys.argv[1]
-ruta_salida = sys.argv[2]
+    # Guarda el nombre de la primera secuencia en un archivo
+    first_sequence_name = records[0].id
+    first_sequence_file = output_dir + "referencia.txt"
+    with open(first_sequence_file, "w") as f:
+        f.write(first_sequence_name)
+    
+    # Crea un archivo para cada secuencia en la ruta especificada
+    for record in records:
+        output_file = output_dir + f"{record.id}.fasta"
+        # Escribe la secuencia en el archivo individual
+        with open(output_file, "w") as f:
+            SeqIO.write(record, f, "fasta")
+        
+        print(f"Secuencia {record.id} guardada en {output_file}")
 
-with open(archivo) as f:
-    lines = f.readlines()
+if __name__ == "__main__":
 
-i = 0
-while i < len(lines):
-    if ">" in lines[i]:
-        if(i == 0):
-            mi_referencia = lines[i].split(">")[1].split()[0]
-        nombre_archivo = lines[i].split(">")[1].split()[0] + ".fasta"
-        datos_archivo = lines[i].split()[0] + "\n"
-        i += 1
-        while i < len(lines) and ">" not in lines[i]:
-            datos_archivo += lines[i]
-            i += 1
-        with open(os.path.join(ruta_salida, nombre_archivo), "w") as f:
-            f.write(datos_archivo)
-            f.close()
-    else:
-        i += 1
-
-with open(os.path.join(ruta_salida, "referencia"), "w") as f:
-    # Escribir la variable en el archivo
-    f.write(mi_referencia)
-    f.close()
+    fasta_file = sys.argv[1]
+    output_dir  = "/shared/inputs/"
+    separate_sequences(fasta_file, output_dir)

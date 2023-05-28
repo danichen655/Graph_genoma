@@ -127,11 +127,9 @@ def moveToDocker(fileName):
 
 # Si el usuario selecciona un fasta, se divide en varios, porque quiere decir que es uno que contiene varios
 def dividirFastas(fileName):
-    src = os.path.join(PATH,"code","dividirFasta.py")
-    archivo = os.path.join(PATH,"inputs",f"{fileName}")
     salida = os.path.join(PATH,"inputs")
-    if (os.system(f"python {src} {archivo} {salida}") != 0):
-        exit(1)
+    os.system(f"docker container run --rm -v {PATH}:/shared global_image python3 /shared/code/dividirFasta.py /shared/inputs/{fileName} {salida}")
+
 
 # Función que divide un csv en varios, por "row"
 def dividirCSVs(fileName):
